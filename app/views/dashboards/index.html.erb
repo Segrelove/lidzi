@@ -1,0 +1,30 @@
+<div class="container pt-5 mb-4">
+  <h1>La liste de tes leads</h1>
+  <div class="row pt-4 pb-4">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First_name</th>
+          <th scope="col">Last_name</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @leads.each do |lead| %>
+          <tr>
+            <th scope="row"><%= lead.id %></th>
+            <td><%= lead.first_name %></td>
+            <td><%= lead.last_name %></td>
+            <td><%= lead.phone_number %></td>
+            <td><a href="<%= dashboard_path(lead.id)%>"><i class="fas fa-eye"></i></a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

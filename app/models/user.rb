@@ -1,14 +1,12 @@
 class User < ApplicationRecord
   has_secure_password
   
-  validates :first_name,
-    presence: true
-  validates :last_name,
-    presence: true
+  # validates :first_name,
+  #   presence: true
+  # validates :last_name,
+  #   presence: true
   validates :email,
-    presence: true,
-    uniqueness: true,
-    format: { with: URI::MailTo::EMAIL_REGEXP }
+    presence: true
   validates :password,
     presence: true,
     length: { in: 6..30, message: "password incorrect"}

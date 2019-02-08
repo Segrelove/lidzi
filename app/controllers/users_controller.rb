@@ -8,11 +8,12 @@ class UsersController < ApplicationController
       first_name: params[:first_name], 
       last_name: params[:last_name],
       email: params[:email],
-      password: params[:email],
+      password: params[:password],
       city_id: 1
       )
       if @user.save
         flash[:success] = "Compte créé. Bienvenue #{@user.first_name}!"
+        session[:user_id] = @user.id
         redirect_to root_path
         return
       else
