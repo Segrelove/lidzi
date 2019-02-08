@@ -1,0 +1,27 @@
+<div class="container mb-5">
+<h1 class="pt-3"> Créer ton compte !</h1>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <div class="form-group">
+      <%= label_tag 'Prénom' %>
+      <%= text_field_tag 'first_name', @user.first_name, class: 'form-control',  placeholder: "ex : Michel" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag 'Nom de Famille' %>
+      <%= text_field_tag 'last_name', @user.last_name, class: 'form-control',  placeholder: "ex : Gondri" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag 'Age' %>
+      <%= text_field_tag 'age', @user.age, class: 'form-control',  placeholder: "ex : 76 ans" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag 'Email' %>
+      <%= text_field_tag 'email', @user.email, class: 'form-control',  placeholder: "ex : michel76@gondri.com" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag 'Mot de Passe' %>
+      <%= password_field_tag 'password', @user.password, class: 'form-control',  placeholder: "ex : Mich76!Gondr1928" %>
+    </div>
+
+      <%= submit_tag "Créer ton compte", class: 'btn btn-default btn-dark text-light btn-submit' %>
+    <% end %>
+</div>

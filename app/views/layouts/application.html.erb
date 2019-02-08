@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lidzi</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+      <a class="navbar-brand" href="<%= root_path %>">Lidzi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <% if session[:user_id].nil? %>
+        <span class="navbar-text">
+          <a href="<%= new_user_path %>" class="nav-link text-light">Sign Up</a>
+        </span>
+        <span class="navbar-text">
+          <a href="<%= new_session_path %>" class="nav-link text-light">Log In</a>
+        </span>
+        <% end %>
+        <% if session[:user_id] %>
+          <span class="nav-item">
+          <a class="nav-link text-light" <%= link_to "Log Out", session_path(session[:user_id]), method: :delete %>
+        </span>
+        <% end %>
+      </div>
+    </nav>
+
+    <!-- FLASH ALERT -->
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %> text-center" role="alert">
+        <%= msg %>
+        </div>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>
