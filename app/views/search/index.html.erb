@@ -1,27 +1,28 @@
-<div class="container pt-5 mb-4">
-  <h1>The Gossip Project</h1>
-  <p>Voici la liste de nos derniers gossips</p>
-  <div class="row pt-4 pb-4">
-    <table class="table">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Prenom</th>
-          <th scope="col">Nom</th>
-          <th scope="col">User_id</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @leads.each do |lead| %>
-          <tr>
-            <th scope="row"><%= lead.id %></th>
-            <td><%= lead.first_name %></td>
-            <td><%= lead.last_name %></td>
-            <td><%= lead.user_id %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <!--end of col-->
+
+                    <div class="col">
+                    <%= form_tag url_for(action: 'create'), method: "post" do %>
+                        <%= text_field_tag(:search, "", class: 'form-control form-control-lg form-control-borderless', placeholder: 'Search something') %>
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <%= submit_tag "Search", class: 'btn btn-lg btn-success' %>
+                    </div>
+                    <% end %>
+                    <!--end of col-->
+                </div>
+            </div>
+        </div>
+        <!--end of col-->
+    </div>
 </div>
+

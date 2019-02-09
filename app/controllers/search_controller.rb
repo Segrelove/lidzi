@@ -3,23 +3,22 @@ require 'open-uri'
 
 class SearchController < ApplicationController
   def index
-    @leads = Lead.all
+
   end
 
   def new
-    @lead = Lead.new
+    @lead = LeadSearch.new
   end
 
   def create 
     scrap 
     render :show
-  end
+  end 
 
   private
 
   def scrap
     @h = Hash.new{|hsh, key| hsh[key] = []}
-    @lead_search = LeadSearch.new
 
     @doc = Nokogiri::HTML(open(whole_search))
     @doc.xpath('//h3/a').each do |node|
@@ -27,7 +26,7 @@ class SearchController < ApplicationController
       @h[:name] << lead[0]
       @h[:job] << lead[1]
     end
-
+    
     @doc.xpath('//h3/a/@href').each do |node|
       url = node.text[7..-1]
       final_url = url.slice(0..(url.index('&')))
