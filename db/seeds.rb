@@ -8,6 +8,12 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Lead.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('leads')
+User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+City.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('cities')
 
 ## Create 10 cities
 10.times do |x|
@@ -34,7 +40,6 @@ end
   Lead.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number,
     user_id: rand(1..20)
   )
 end

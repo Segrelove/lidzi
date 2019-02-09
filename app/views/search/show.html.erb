@@ -1,0 +1,27 @@
+<div class="container pt-5 mb-4">
+  <div class="row pt-4 pb-4">
+  <h3>Recherche des dirigeants de <%= @company_name.gsub!('+',' ').capitalize! %></h3>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">First Name</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">LinkedIn</th>
+          <th scope="col">Save</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% 5.times do |i| %>
+        <tr>
+          <th scope="row"></th>
+          <td><%= @h[:name][i] %></td>
+          <td><%= @h[:job][i] %></td>
+          <td><a href="<%= @h[:url][i] %>"><i class="fab fa-linkedin-in"></i></a></td>
+          <td><a href="#"><i class="far fa-save"></i></a></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

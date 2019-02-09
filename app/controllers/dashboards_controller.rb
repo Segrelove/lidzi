@@ -3,13 +3,10 @@ class DashboardsController < ApplicationController
 
   def index
     @leads = Lead.all
-    puts '*' * 60
-    puts @leads.user_id
-    puts '*' * 60
   end
 
   def show
-    @lead = Lead.find(params[:user_id])
+    @lead = Lead.find(params[:id])
   end
 
   def destroy

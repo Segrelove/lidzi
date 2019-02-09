@@ -1,25 +1,28 @@
+<h1> ICI ON MONTRE LES LEADS FDP </h1>
 <div class="container pt-5 mb-4">
-  <h1>La liste de tes leads</h1>
+  <h1>The Gossip Project</h1>
+  <p>Voici la liste de nos derniers gossips</p>
   <div class="row pt-4 pb-4">
     <table class="table">
       <thead class="table-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First_name</th>
-          <th scope="col">Last_name</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col">Id</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Nom</th>
+          <th scope="col">User_id</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <% @leads.each do |lead| %>
           <tr>
+            <% if lead.user_id == current_user.id %>
             <th scope="row"><%= lead.id %></th>
             <td><%= lead.first_name %></td>
             <td><%= lead.last_name %></td>
-            <td><a href="<%= dashboard_path(lead.id)%>"><i class="fas fa-eye"></i></a></td>
+            <td><%= lead.user_id %></td>
+            <td><%= current_user.first_name %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

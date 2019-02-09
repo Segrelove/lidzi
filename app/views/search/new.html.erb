@@ -1,0 +1,10 @@
+<h1> ICI ON RECHERCHE DES LEADS FDP </h1>
+
+                <!--end of col-->
+                <%= form_tag url_for(action: 'create'), method: "post" do %>
+                    <%= text_field_tag(:search, "", class: 'form-control form-control-lg form-control-borderless', placeholder: 'Search something') %>
+                
+                <!--end of col-->
+                    <%= submit_tag "Search", class: 'btn btn-lg btn-success' %>
+                <% end %>
+
