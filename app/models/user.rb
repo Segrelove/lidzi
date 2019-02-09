@@ -12,6 +12,7 @@ class User < ApplicationRecord
     length: { in: 6..30, message: "password incorrect"}
   belongs_to :city
   has_many :leads
+  has_many :lead_searchs
 
 
   def info

@@ -1,10 +1,28 @@
-<h1> ICI ON RECHERCHE DES LEADS FDP </h1>
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <!--end of col-->
 
-                <!--end of col-->
-                <%= form_tag url_for(action: 'create'), method: "post" do %>
-                    <%= text_field_tag(:search, "", class: 'form-control form-control-lg form-control-borderless', placeholder: 'Search something') %>
-                
-                <!--end of col-->
-                    <%= submit_tag "Search", class: 'btn btn-lg btn-success' %>
-                <% end %>
+                    <div class="col">
+                    <%= form_tag url_for(action: 'create'), method: "post" do %>
+                        <%= text_field_tag(:search, "", class: 'form-control form-control-lg form-control-borderless', placeholder: 'Search something') %>
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <%= submit_tag "Search", class: 'btn btn-lg btn-success' %>
+                    </div>
+                    <% end %>
+                    <!--end of col-->
+                </div>
+            </div>
+        </div>
+        <!--end of col-->
+    </div>
+</div>
 
